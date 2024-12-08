@@ -28,6 +28,10 @@ if ! /usr/bin/id "$_USER" > /dev/null 2>&1; then
 	chown -R $_UID:$_GID /var/lib/transmission-daemon/.config/transmission-daemon
 fi
 
+## create required devices
+if [ ! -d /dev/net ]; then mkdir /dev/net; fi
+if [ ! -e /dev/net/tun ]; then mknod /dev/net/tun c 10 200; fi
+
 ## start webmin
 /etc/init.d/webmin start
 
