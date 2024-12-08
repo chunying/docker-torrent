@@ -1,0 +1,22 @@
+services:
+  torrent:
+    image: chunyingh/torrent
+    pull_policy: build
+    build: .
+    restart: unless-stopped
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+      - SYS_MODULE
+      - DAC_READ_SEARCH
+    volumes:
+      - /volume1/docker/torrents/downloads:/torrents/downloads:rw
+      - /volume1/docker/torrents/incomplete:/torrents/incomplete:rw
+    ports:
+      - "9091:9091/tcp"
+      - "10000:10000/tcp"
+    environment:
+      - TORRENT_USER=torrent
+      - TORRENT_PASS=password
+      - USER_UID=1000
+      - USER_GID=1000
