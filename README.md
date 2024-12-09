@@ -39,10 +39,12 @@ My simplest docker for torrent management
   ```
 
 # Sample commands to mount a remote CIFS filesystem
-
-  `mount.cifs "//$CIFS_SERVERIP/path/to/shared/folder" /mnt -o user=$CIFS_USER,pass=$CIFS_PASS,iocharset=utf8`
+  ```
+  mount.cifs "//$CIFS_SERVERIP/path/to/shared/folder" /mnt -o user=$CIFS_USER,pass=$CIFS_PASS,iocharset=utf8
+  ```
 
 # Sample commands to mount a remote NFS filesystem
-
-  `mount -t nfs $NFS_SERVERIP/path/to/exported/folder /mnt`
+  ```
+  mount -t nfs $NFS_SERVERIP/path/to/exported/folder /mnt
+  ```
 
