@@ -19,7 +19,7 @@ if ! /usr/bin/id "$_USER" > /dev/null 2>&1; then
 	## setup transmission
 	/usr/bin/sed -i -e 's/"rpc-username": "[^"]*"/"rpc-username": "'$_USER'"/g' /etc/transmission-daemon/settings.json
 	/usr/bin/sed -i -e 's/"rpc-password": "[^"]*"/"rpc-password": "'$_PASS'"/g' /etc/transmission-daemon/settings.json
-	/usr/bin/sed -i -e 's/"rpc-whitelist": "[^"]*"/"rpc-whitelist": "10.*.*.*,192.*.*.*,172.*.*.*"/g' /etc/transmission-daemon/settings.json
+	/usr/bin/sed -i -e 's/"rpc-whitelist": "[^"]*"/"rpc-whitelist": "10.*.*.*,192.*.*.*,172.*.*.*,127.*.*.*"/g' /etc/transmission-daemon/settings.json
 	/usr/bin/sed -i -e 's/"download-dir": "[^"]*"/"download-dir": "\/torrents\/downloads"/g' /etc/transmission-daemon/settings.json
 	/usr/bin/sed -i -e 's/"incomplete-dir": "[^"]*"/"incomplete-dir": "\/torrents\/incomplete"/g' /etc/transmission-daemon/settings.json
 	/usr/bin/sed -i -e 's/"incomplete-dir-enabled": false/"incomplete-dir-enabled": true/g' /etc/transmission-daemon/settings.json
